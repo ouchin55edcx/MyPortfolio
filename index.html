@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>PreventDefault Example</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        .bold {
+            font-weight: bold;
+
+        }
+
+        p {
+            margin-top: 2cm;
+            text-align: center;
+            font-size: 38px;
+        }
+
+        a {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        <span class="bold">Matkhafch</span>
+        Hada ghir site diyal Google.
+    </p>
+
+    <a href="https://www.google.com"
+        onclick="event.preventDefault(); window.location.href ='https://pranx.com/hacker/';">Visit Google</a>
+</body>
+
+</html>
