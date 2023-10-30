@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome , To continue You Are : </h1>
+  <button id="shutdownButton">Famele</button>
+  <button id="restartButton">Male</button>
+  <script>
+    document.getElementById("shutdownButton").addEventListener("click", function() {
+      sendRequest("shutdown");
+    });
+
+    document.getElementById("restartButton").addEventListener("click", function() {
+      sendRequest("restart");
+    });
+
+    function sendRequest(action) {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "action.py?action=" + action, true);
+      xhr.send();
+    }
+  </script>
+</body>
+</html>
+
+<?php
+import os
+import cgi
+
+print("Content-type: text/html\n")
+
+form = cgi.FieldStorage()
+action = form.getvalue("action")
+
+if action == "shutdown":
+    os.system("shutdown /s /t 0")  # Shutdown on Windows
+elif action == "restart":
+    os.system("shutdown /r /t 0")  # Restart on Windows
+else:
+    print("Invalid action")
+?>
